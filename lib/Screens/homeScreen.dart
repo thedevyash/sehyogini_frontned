@@ -62,7 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Text("Github",
                             style: GoogleFonts.poppins(
                                 fontSize: 23, color: colors.purp)),
-                      )
+                      ),
+                      TextButton(onPressed: () {}, child: Text(""))
                     ],
                   ),
                 )
@@ -78,40 +79,34 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () => scaffoldKey.currentState?.openDrawer(),
           ),
         ),
-        body: TextButton(
-            onPressed: () async {
-              final SharedPreferences prefs = await _prefs;
-              await prefs.setBool("isLoggedIn", false);
-              Get.offAll(OnboardingScreen());
-            },
-            child: Text("logout")),
+        body: Obx(() => pages[navbarController.currentindex.value]),
         bottomNavigationBar: Obx(() => CurvedNavigationBar(
                 index: navbarController.currentindex.value,
-                color: colors.purpLight,
+                color: colors.purp,
                 animationDuration: Duration(milliseconds: 250),
                 backgroundColor: Colors.white,
                 onTap: (value) => navbarController.setvalue(value),
-                buttonBackgroundColor: colors.purpAcc,
+                buttonBackgroundColor: colors.purp,
                 height: 60,
                 items: [
                   Icon(
-                    CupertinoIcons.house_alt_fill,
-                    size: 30,
-                  ),
-                  Icon(
                     Icons.people,
+                    color: Colors.white,
                     size: 30,
                   ),
                   Icon(
-                    CupertinoIcons.chat_bubble,
+                    color: Colors.white,
+                    CupertinoIcons.power,
                     size: 30,
                   ),
                   Icon(
-                    CupertinoIcons.square_list,
+                    color: Colors.white,
+                    CupertinoIcons.briefcase_fill,
                     size: 30,
                   ),
                   Icon(
-                    CupertinoIcons.settings_solid,
+                    color: Colors.white,
+                    Icons.person_2_rounded,
                     size: 30,
                   ),
                 ])));

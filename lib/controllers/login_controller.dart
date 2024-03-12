@@ -16,7 +16,7 @@ class LoginController extends GetxController {
     isLoading = true;
     update();
     final SharedPreferences prefs = await _prefs;
-    var url = Uri.https(URL.baseUrl, "/api/signin");
+    var url = Uri.parse(URL.login);
     Map body = {
       "phone": "$phonePref${phonecontroller.text}",
       "password": passwordcontroller.text

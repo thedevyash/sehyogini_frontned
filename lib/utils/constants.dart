@@ -1,6 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sehyogini_frontned/Screens/pages/community.dart';
+import 'package:sehyogini_frontned/Screens/pages/myprofile.dart';
+import 'package:sehyogini_frontned/Screens/pages/opportunity.dart';
+import 'package:sehyogini_frontned/Screens/pages/voices.dart';
 
 class colors {
   static const purp = Color.fromRGBO(86, 3, 173, 1);
@@ -10,6 +15,7 @@ class colors {
   static const pink = Color.fromRGBO(238, 66, 102, 1);
   static const pinkMain = Color(0xffFF566A);
   static const purpMain = Color(0xff8C5CB3);
+  static const grey = Color(0xffF9F9F9);
 }
 
 List<DropdownMenuEntry> gender = [
@@ -26,3 +32,16 @@ List<DropdownMenuEntry> city = [
   DropdownMenuEntry(value: "Lucknow", label: "Lucknow"),
   DropdownMenuEntry(value: "Hyderabad", label: "Hyderabad"),
 ];
+
+List pages = [
+  CommunityScreen(),
+  VoicesScreen(),
+  OpportunityScreen(),
+  MyProfileScreen()
+];
+
+var styleTitle = GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w600);
+
+var styleContent = GoogleFonts.poppins(
+  fontSize: 14,
+);
