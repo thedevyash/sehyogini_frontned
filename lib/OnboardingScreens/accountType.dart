@@ -23,7 +23,7 @@ class _AccountTypeState extends State<AccountType> {
     var width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: colors.purp,
+        backgroundColor: colors.pinkMain,
         body: Stack(fit: StackFit.expand, children: [
           Positioned(
             left: 0,
@@ -79,8 +79,8 @@ class _AccountTypeState extends State<AccountType> {
                                   minimumSize: Size(width * 0.465, 150),
                                   maximumSize: Size(width * 0.465, 150),
                                   foregroundColor: colors.purpLight,
-                                  side: BorderSide(color: colors.purp),
-                                  backgroundColor: colors.purp,
+                                  side: BorderSide(color: colors.pinkMain),
+                                  backgroundColor: colors.pinkMain,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(30.0),
                                   ),
@@ -93,7 +93,9 @@ class _AccountTypeState extends State<AccountType> {
                                   child: Column(
                                     children: [
                                       Text("Recruiter",
+                                          textAlign: TextAlign.center,
                                           style: GoogleFonts.poppins(
+                                              color: Colors.white,
                                               fontSize: 20,
                                               fontWeight: FontWeight.w400))
                                     ],
@@ -107,9 +109,9 @@ class _AccountTypeState extends State<AccountType> {
                                 style: OutlinedButton.styleFrom(
                                   minimumSize: Size(width * 0.465, 150),
                                   maximumSize: Size(width * 0.465, 150),
-                                  foregroundColor: colors.purpLight,
-                                  side: BorderSide(color: colors.purp),
-                                  backgroundColor: colors.purp,
+                                  foregroundColor: colors.pinkMain,
+                                  side: BorderSide(color: colors.pinkMain),
+                                  backgroundColor: colors.pinkMain,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(30.0),
                                   ),
@@ -122,7 +124,9 @@ class _AccountTypeState extends State<AccountType> {
                                   child: Column(
                                     children: [
                                       Text("Single Mother",
+                                          textAlign: TextAlign.center,
                                           style: GoogleFonts.poppins(
+                                              color: Colors.white,
                                               fontSize: 20,
                                               fontWeight: FontWeight.w400))
                                     ],

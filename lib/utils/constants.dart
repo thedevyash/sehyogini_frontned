@@ -15,7 +15,7 @@ class colors {
   static const pink = Color.fromRGBO(238, 66, 102, 1);
   static const pinkMain = Color(0xffFF566A);
   static const purpMain = Color(0xff8C5CB3);
-  static const grey = Color(0xffF9F9F9);
+  static const grey = Color.fromARGB(255, 241, 238, 238);
 }
 
 List<DropdownMenuEntry> gender = [

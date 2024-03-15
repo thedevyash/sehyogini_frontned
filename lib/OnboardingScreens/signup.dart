@@ -83,7 +83,7 @@ class _SignupScreenState extends State<SignupScreen> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: colors.purp,
+        backgroundColor: colors.pinkMain,
         body: Stack(fit: StackFit.expand, children: [
           Positioned(
             left: 0,
@@ -261,8 +261,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                     minimumSize: Size(width * 0.8, 60),
                                     maximumSize: Size(width * 0.8, 60),
                                     foregroundColor: colors.purpLight,
-                                    side: BorderSide(color: colors.purp),
-                                    backgroundColor: colors.purp,
+                                    side: BorderSide(color: colors.pinkMain),
+                                    backgroundColor: colors.pinkMain,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(30.0),
                                     ),

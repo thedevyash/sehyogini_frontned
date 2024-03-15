@@ -21,6 +21,7 @@ class RegisterController extends GetxController {
   TextEditingController lookingForController = TextEditingController();
   TextEditingController companyNameController = TextEditingController();
   TextEditingController roleController = TextEditingController();
+  TextEditingController organisationIDcontroller = TextEditingController();
   var acctype = "user";
   bool isLoading = false;
   RxBool employStatus = false.obs;
@@ -36,7 +37,8 @@ class RegisterController extends GetxController {
       "lookingFor": lookingForController.text,
       "levelOfEducation": levelEdu.text,
       "companyName": companyNameController.text,
-      "companyRole": roleController.text
+      "companyRole": roleController.text,
+      "organisationID": organisationIDcontroller.text
     };
     Map body = {
       "name": usernameController.text,
@@ -63,6 +65,7 @@ class RegisterController extends GetxController {
         print(response.body);
         await prefs.setString("token", jsonDecode(response.body)['id']);
         await prefs.setBool("isLoggedIn", true);
+        await prefs.setString("name", usernameController.text);
         if (acctype == "user")
           await prefs.setBool("isRecruiter", false);
         else

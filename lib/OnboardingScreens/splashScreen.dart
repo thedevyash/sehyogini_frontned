@@ -55,7 +55,6 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Image.asset(
               "assets/images/waves.png",
-              color: Color.fromARGB(255, 113, 46, 184),
             )
           ],
         )

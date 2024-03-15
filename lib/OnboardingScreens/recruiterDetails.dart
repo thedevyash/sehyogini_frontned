@@ -81,7 +81,7 @@ class _RecruiterDetailsScreenState extends State<RecruiterDetailsScreen> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: colors.purp,
+        backgroundColor: colors.pinkMain,
         body: Stack(fit: StackFit.expand, children: [
           Positioned(
             left: 0,
@@ -133,25 +133,25 @@ class _RecruiterDetailsScreenState extends State<RecruiterDetailsScreen> {
                                 height: height * 0.03,
                               ),
                               LoginField(
-                                  hint: "Enter Your Company's Name",
+                                  hint: "Enter Your Organisation's Name",
                                   textEditingController:
-                                      controller.usernameController,
+                                      controller.companyNameController,
                                   isfilled: user),
                               SizedBox(
                                 height: height * 0.018,
                               ),
                               LoginField(
-                                  hint: "Enter Your Company's Email",
+                                  hint: "Enter Your Organisation ID",
                                   textEditingController:
-                                      controller.emailController,
+                                      controller.organisationIDcontroller,
                                   isfilled: user),
                               SizedBox(
                                 height: height * 0.018,
                               ),
                               LoginField(
-                                  hint: "Your Role In The Company",
+                                  hint: "What Do You Do?",
                                   textEditingController:
-                                      controller.emailController,
+                                      controller.roleController,
                                   isfilled: user),
                               SizedBox(
                                 height: height * 0.05,
@@ -161,8 +161,8 @@ class _RecruiterDetailsScreenState extends State<RecruiterDetailsScreen> {
                                     minimumSize: Size(width * 0.8, 60),
                                     maximumSize: Size(width * 0.8, 60),
                                     foregroundColor: colors.purpLight,
-                                    side: BorderSide(color: colors.purp),
-                                    backgroundColor: colors.purp,
+                                    side: BorderSide(color: colors.pinkMain),
+                                    backgroundColor: colors.pinkMain,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(30.0),
                                     ),

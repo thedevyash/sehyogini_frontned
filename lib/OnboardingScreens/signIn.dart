@@ -34,7 +34,7 @@ class _SignInScreenState extends State<SignInScreen> {
     var width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: colors.purp,
+        backgroundColor: colors.pinkMain,
         body: Stack(fit: StackFit.expand, children: [
           Positioned(
             left: 0,
@@ -161,22 +161,35 @@ class _SignInScreenState extends State<SignInScreen> {
                                   minimumSize: Size(width * 0.8, 60),
                                   maximumSize: Size(width * 0.8, 60),
                                   foregroundColor: colors.purpLight,
-                                  side: BorderSide(color: colors.purp),
-                                  backgroundColor: colors.purp,
+                                  side: BorderSide(color: colors.pinkMain),
+                                  backgroundColor: colors.pinkMain,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(30.0),
                                   ),
                                 ),
                                 onPressed: () async {
                                   setState(() {});
+                                  controller.phonecontroller.text.isEmpty
+                                      ? mob = false
+                                      : mob = true;
+                                  controller.passwordcontroller.text.isEmpty
+                                      ? pass = false
+                                      : pass = true;
 
-                                  var res =
-                                      controller.login(context, phonePref);
-                                  if (await res) {
-                                    Get.to(HomeScreen());
+                                  if (mob && pass) {
+                                    var res =
+                                        controller.login(context, phonePref);
+                                    if (await res) {
+                                      Get.to(HomeScreen());
+                                    }
                                   } else {
-                                    setState(() {});
+                                    Get.snackbar("Missing Details !",
+                                        "Please Fill All Fields!",
+                                        margin: EdgeInsets.only(
+                                            bottom: 20, left: 10, right: 10),
+                                        snackPosition: SnackPosition.BOTTOM);
                                   }
+                                  setState(() {});
                                 },
                                 child: controller.isLoading
                                     ? CircularProgressIndicator(
@@ -216,7 +229,9 @@ class _SignInScreenState extends State<SignInScreen> {
                                         child: Text(
                                           "Sign Up",
                                           style: GoogleFonts.poppins(
-                                              fontSize: 14, color: colors.purp),
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14,
+                                              color: colors.pinkMain),
                                         ),
                                       )
                                     ],
@@ -238,7 +253,9 @@ class _SignInScreenState extends State<SignInScreen> {
                                         child: Text(
                                           "Sign Up",
                                           style: GoogleFonts.poppins(
-                                              fontSize: 14, color: colors.purp),
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14,
+                                              color: colors.pinkMain),
                                         ),
                                       )
                                     ],

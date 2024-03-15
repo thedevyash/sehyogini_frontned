@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:sehyogini_frontned/controllers/getUserById.dart';
 import 'package:sehyogini_frontned/utils/constants.dart';
 import 'package:sehyogini_frontned/utils/url.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -11,6 +12,7 @@ class LoginController extends GetxController {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   TextEditingController phonecontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
+  GetUserByIdController userByIdController = Get.put(GetUserByIdController());
   bool isLoading = false;
   Future<bool> login(BuildContext context, var phonePref) async {
     isLoading = true;
@@ -36,6 +38,8 @@ class LoginController extends GetxController {
         print(response.body);
         await prefs.setString("token", jsonDecode(response.body)['id']);
         await prefs.setBool("isLoggedIn", true);
+        await userByIdController.getUserById(jsonDecode(response.body)['id']);
+        await prefs.setString("name", userByIdController.myUser.value.name!);
         phonecontroller.clear();
         passwordcontroller.clear();
         return true;
@@ -48,14 +52,10 @@ class LoginController extends GetxController {
       print(response.statusCode);
       print(response.body);
       // show error SnackBar
+      Get.snackbar('Login Failed', e.toString(),
+          margin: EdgeInsets.only(bottom: 20, left: 10, right: 10),
+          snackPosition: SnackPosition.BOTTOM);
 
-      Get.snackbar(
-        'Login Failed',
-        e.toString(),
-        backgroundColor: colors.purpAcc,
-        colorText: colors.purp,
-        snackPosition: SnackPosition.BOTTOM,
-      );
       return false;
     } finally {
       isLoading = false;

@@ -30,91 +30,196 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return SafeArea(
         child: Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(bottom: 20.0),
-        child: Container(
-          decoration: BoxDecoration(color: Colors.white),
-          child: PageView(
-            allowImplicitScrolling: true,
-            onPageChanged: (value) {
-              setState(() {
-                tap = value;
-              });
-            },
-            controller: _controller,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Container(
+      backgroundColor: colors.pinkMain,
+      body: Container(
+        decoration: BoxDecoration(color: colors.pinkMain),
+        child: PageView(
+          allowImplicitScrolling: true,
+          onPageChanged: (value) {
+            setState(() {
+              tap = value;
+            });
+          },
+          controller: _controller,
+          children: [
+            Stack(children: [
+              Positioned(
+                left: 0,
+                top: height * 0.032,
+                child: SvgPicture.asset(
+                  height: height * 0.15,
+                  "assets/leftCloud.svg",
+                  color: Colors.white,
+                ),
+              ),
+              Positioned(
+                right: 0,
+                top: height * 0.180,
+                child: SvgPicture.asset(
+                  "assets/rightCloud.svg",
+                  color: Colors.white,
+                  height: height * 0.15,
+                ),
+              ),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 14, right: 14),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SvgPicture.asset("assets/images/onboard.svg"),
+                      Image.asset(
+                        "assets/images/sehyogini.png",
+                        height: 50,
+                      ),
                       SizedBox(
-                        height: 20,
+                        height: 8,
                       ),
                       Text(
                         textAlign: TextAlign.center,
                         "Join our vibrant community, share experiences, and grow together!",
                         style: GoogleFonts.poppins(
-                            color: colors.purpAcc,
-                            fontSize: 22,
-                            fontWeight: FontWeight.w300),
+                            fontSize: 20, color: Colors.white),
                       )
                     ],
                   ),
                 ),
+              )
+              // Column(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     SvgPicture.asset("assets/images/onboard.svg"),
+              //     SizedBox(
+              //       height: 20,
+              //     ),
+              //     Text(
+              //       textAlign: TextAlign.center,
+              //       "Join our vibrant community, share experiences, and grow together!",
+              //       style: GoogleFonts.poppins(
+              //           color: colors.purpAcc,
+              //           fontSize: 22,
+              //           fontWeight: FontWeight.w300),
+              //     )
+              //   ],
+              // ),
+            ]),
+            Stack(children: [
+              Positioned(
+                left: 0,
+                top: height * 0.180,
+                child: SvgPicture.asset(
+                  height: height * 0.15,
+                  "assets/leftCloud.svg",
+                  color: Colors.white,
+                ),
               ),
-              Container(
+              Positioned(
+                right: 0,
+                top: height * 0.032,
+                child: SvgPicture.asset(
+                  "assets/rightCloud.svg",
+                  color: Colors.white,
+                  height: height * 0.15,
+                ),
+              ),
+              Center(
                 child: Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset("assets/images/onboard.svg"),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          textAlign: TextAlign.center,
-                          "Navigate seamlessly through features like mentorship, job board, and skill-building modules.",
-                          style: GoogleFonts.poppins(
-                              color: colors.purpAcc,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w300),
-                        )
-                      ],
-                    )),
+                  padding: const EdgeInsets.only(left: 14, right: 14),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        textAlign: TextAlign.center,
+                        "Navigate seamlessly through features like mentorship, job board, and skill-building modules.",
+                        style: GoogleFonts.poppins(
+                            fontSize: 20, color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+              )
+              // Column(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     SvgPicture.asset("assets/images/onboard.svg"),
+              //     SizedBox(
+              //       height: 20,
+              //     ),
+              //     Text(
+              //       textAlign: TextAlign.center,
+              //       "Join our vibrant community, share experiences, and grow together!",
+              //       style: GoogleFonts.poppins(
+              //           color: colors.purpAcc,
+              //           fontSize: 22,
+              //           fontWeight: FontWeight.w300),
+              //     )
+              //   ],
+              // ),
+            ]),
+            Stack(children: [
+              Positioned(
+                left: 0,
+                top: height * 0.032,
+                child: SvgPicture.asset(
+                  height: height * 0.15,
+                  "assets/leftCloud.svg",
+                  color: Colors.white,
+                ),
               ),
-              Container(
+              Positioned(
+                right: 0,
+                top: height * 0.180,
+                child: SvgPicture.asset(
+                  "assets/rightCloud.svg",
+                  color: Colors.white,
+                  height: height * 0.15,
+                ),
+              ),
+              Center(
                 child: Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset("assets/images/onboard.svg"),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          textAlign: TextAlign.center,
-                          "Start your journey towards empowerment and success with our user-friendly platform.",
-                          style: GoogleFonts.poppins(
-                              color: colors.purpAcc,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w300),
-                        )
-                      ],
-                    )),
-              ),
-            ],
-          ),
+                  padding: const EdgeInsets.only(left: 14, right: 14),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        textAlign: TextAlign.center,
+                        "Start your journey towards empowerment and success with our user-friendly platform.",
+                        style: GoogleFonts.poppins(
+                            fontSize: 20, color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+              )
+              // Column(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     SvgPicture.asset("assets/images/onboard.svg"),
+              //     SizedBox(
+              //       height: 20,
+              //     ),
+              //     Text(
+              //       textAlign: TextAlign.center,
+              //       "Join our vibrant community, share experiences, and grow together!",
+              //       style: GoogleFonts.poppins(
+              //           color: colors.purpAcc,
+              //           fontSize: 22,
+              //           fontWeight: FontWeight.w300),
+              //     )
+              //   ],
+              // ),
+            ]),
+          ],
         ),
       ),
       bottomSheet: Container(
-        decoration: BoxDecoration(color: Colors.white),
+        decoration: BoxDecoration(color: colors.pinkMain),
         constraints: BoxConstraints(minHeight: 80),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -126,15 +231,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 child: Text(
                   "Skip",
                   style: GoogleFonts.poppins(
-                      color: colors.purp,
+                      color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.w600),
                 )),
             SmoothPageIndicator(
                 controller: _controller,
                 count: 3,
-                effect: WormEffect(
-                    dotColor: colors.purpAcc, activeDotColor: colors.purp)),
+                effect: ScrollingDotsEffect(
+                    dotColor: colors.grey, activeDotColor: Colors.white)),
             IconButton(
                 onPressed: tap < 2
                     ? () {
@@ -151,7 +256,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         Navigator.of(context).push(CupertinoPageRoute(
                             builder: (context) => SignInScreen()));
                       },
-                icon: Icon(Icons.arrow_forward_ios))
+                icon: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white,
+                ))
           ],
         ),
       ),

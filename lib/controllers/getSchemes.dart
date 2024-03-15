@@ -1,45 +1,46 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
+import 'package:sehyogini_frontned/models/jobs.dart';
 import 'package:sehyogini_frontned/models/posts.dart';
 import 'package:http/http.dart' as http;
+import 'package:sehyogini_frontned/models/scheme.dart';
 import 'package:sehyogini_frontned/utils/url.dart';
 
-class GetPostByIdController extends GetxController {
-  RxBool isLoading = true.obs;
-  Rx<Post> myModelPost = Post().obs;
+class GetSchemeController extends GetxController {
+  RxBool isLoading = false.obs;
+  RxList<schemeModel> myscheme = <schemeModel>[].obs;
+
   @override
   onInit() {
     super.onInit();
+    getScheme();
   }
 
-  Future<Post> getPostById(String id) async {
+  Future<bool?> getScheme() async {
     isLoading(true);
     update();
 
     try {
-      var url = Uri.parse("${URL.getPostsById}$id");
-      // print(url);
       final response = await http.get(
-        url,
+        Uri.parse(URL.getSchemes),
         headers: {"Content-Type": "application/json", 'Accept': '*/*'},
       );
 
       // print("get posts called");
 
       // print(response.body);
-      Post myModelPost;
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
+        print(data);
+        myscheme.value =
+            (data as List).map((i) => schemeModel.fromJson(i)).toList();
 
-        myModelPost = Post.fromJson(data['user']);
-        return myModelPost;
-      } else {
-        throw jsonDecode(response.body)['message'] ?? "Unknow Error Occured";
-      }
+        return true;
+      } else {}
     } catch (e) {
       print(e.toString());
-      throw "Unknow Error Occured";
+      return false;
     } finally {
       isLoading(false);
       update();

@@ -7,6 +7,7 @@ class SetupController extends GetxController {
   RxBool isLoggedIn = false.obs;
   RxString token = "".obs;
   RxBool isRecruiter = false.obs;
+  RxString name = "".obs;
   late SharedPreferences _prefs;
   var route;
 
@@ -22,6 +23,7 @@ class SetupController extends GetxController {
       isLoggedIn.value = _prefs.getBool('isLoggedIn') ?? false;
       token.value = _prefs.getString('token') ?? "";
       isRecruiter.value = _prefs.getBool('isRecruiter') ?? false;
+      name.value = _prefs.getString('name') ?? "";
     });
 
     route = isLoggedIn.value ? const HomeScreen() : const OnboardingScreen();
