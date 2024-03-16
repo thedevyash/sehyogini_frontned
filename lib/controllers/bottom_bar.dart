@@ -7,3 +7,11 @@ class bottomController extends GetxController {
     update();
   }
 }
+
+class tabsController extends GetxController {
+  RxString currentindex = "".obs;
+  void setvalue(String index) {
+    currentindex.value = index;
+    update();
+  }
+}

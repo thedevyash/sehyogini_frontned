@@ -12,6 +12,7 @@ class MakeAPostController extends GetxController {
   GetPostsController postsController = Get.put(GetPostsController());
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   RxBool isLoading = false.obs;
+  RxBool isPosted = true.obs;
   TextEditingController contentcontroller = TextEditingController();
   @override
   onInit() {
@@ -45,7 +46,11 @@ class MakeAPostController extends GetxController {
 
       if (response.statusCode == 200) {
         // print("aa gya respo");
-        contentcontroller.clear();
+        var data = await jsonDecode(response.body);
+
+        isPosted.value = data['isposted'];
+        print(isPosted.value);
+        update();
         return true;
       } else {
         print(response);
@@ -56,6 +61,7 @@ class MakeAPostController extends GetxController {
       return false;
     } finally {
       isLoading(false);
+      contentcontroller.clear();
       update();
     }
   }

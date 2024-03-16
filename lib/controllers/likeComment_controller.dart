@@ -12,6 +12,7 @@ class MakeLikeCommentController extends GetxController {
   GetPostsController postsController = Get.put(GetPostsController());
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   RxBool isLoading = false.obs;
+  RxBool isPosted = true.obs;
   TextEditingController commentcontroller = TextEditingController();
   @override
   onInit() {
@@ -37,11 +38,10 @@ class MakeLikeCommentController extends GetxController {
 
       if (response.statusCode == 200) {
         // print("aa gya respo");
-        print(response.body);
+
         return true;
       } else {
         print(response);
-        return false;
         throw jsonDecode(response.body)['message'] ?? "Unknow Error Occured";
       }
     } catch (e) {
@@ -73,6 +73,12 @@ class MakeLikeCommentController extends GetxController {
       // print(response.statusCode);
 
       if (response.statusCode == 200) {
+        var data = await jsonDecode(response.body);
+
+        isPosted.value = data['isposted'];
+        print(isPosted.value);
+        update();
+        print(response.body);
         commentcontroller.clear();
 
         return true;

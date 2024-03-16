@@ -19,7 +19,7 @@ class GetJobsController extends GetxController {
     getJob();
   }
 
-  Future<bool> getJob() async {
+  Future<bool?> getJob() async {
     isLoading(true);
     update();
 
@@ -52,13 +52,15 @@ class GetJobsController extends GetxController {
             .toList();
 
         return true;
-      } else {}
+      } else {
+        print(response);
+        throw jsonDecode(response.body)['message'] ?? "Unknow Error Occured";
+      }
     } catch (e) {
-      print(e.toString());
+      return false;
     } finally {
       isLoading(false);
       update();
-      return false;
     }
   }
 }

@@ -6,6 +6,8 @@ import 'package:flutter_custom_tab_bar/custom_tab_bar.dart';
 import 'package:flutter_custom_tab_bar/library.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sehyogini_frontned/Screens/opportunityPages/Schemes.dart';
+import 'package:sehyogini_frontned/Screens/opportunityPages/opportunities.dart';
+import 'package:sehyogini_frontned/Screens/opportunityPages/workshop.dart';
 
 class OpportunityScreen extends StatefulWidget {
   const OpportunityScreen({super.key});
@@ -18,6 +20,13 @@ class _OpportunityScreenState extends State<OpportunityScreen> {
   CustomTabBarController controller = CustomTabBarController();
   List tabs = ["Opportunities", "Schemes", "Workshops"];
   late PageController _controller = PageController(initialPage: 0);
+  @override
+  void dispose() {
+    _controller.dispose();
+
+    super.dispose();
+  }
+
   Widget getTabbarChild(BuildContext context, int index) {
     return TabBarItem(
         transform: ColorsTransform(
@@ -30,7 +39,7 @@ class _OpportunityScreenState extends State<OpportunityScreen> {
                 constraints: BoxConstraints(minWidth: 60),
                 child: (Text(
                   tabs[index],
-                  style: GoogleFonts.poppins(fontSize: 14, color: color),
+                  style: GoogleFonts.poppins(fontSize: 16, color: color),
                 )),
               );
             }),
@@ -44,7 +53,7 @@ class _OpportunityScreenState extends State<OpportunityScreen> {
       body: Column(
         children: [
           CustomTabBar(
-            width: 300,
+            width: 350,
             tabBarController: controller,
             height: 50,
             itemCount: 3,
@@ -61,11 +70,7 @@ class _OpportunityScreenState extends State<OpportunityScreen> {
           ),
           Expanded(
               child: PageView(
-            children: [
-              Text("Page 1"),
-              Schemes(),
-              Text("Page 3"),
-            ],
+            children: [oppoScreen(), Schemes(), WorkshopScreen()],
             controller: _controller,
           ))
         ],

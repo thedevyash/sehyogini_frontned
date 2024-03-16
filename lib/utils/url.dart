@@ -12,4 +12,5 @@ class URL {
   static const getUserById = "$baseUrl/api/getUserByID/";
   static const getJobs = "$baseUrl/api/getJobs/65e7fa1b0dc978c5ad1c3e79";
   static const getSchemes = "$baseUrl/api/getSchemes";
+  static const getWorkshops = "$baseUrl/api/getWorkshop";
 }

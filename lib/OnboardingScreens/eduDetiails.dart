@@ -62,7 +62,7 @@ class _EducDetailsScreenState extends State<EducDetailsScreen> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: colors.purp,
+        backgroundColor: colors.pinkMain,
         body: Stack(fit: StackFit.expand, children: [
           Positioned(
             left: 0,
@@ -160,11 +160,11 @@ class _EducDetailsScreenState extends State<EducDetailsScreen> {
                                       labelStyle: GoogleFonts.inter(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w400,
-                                          color: colors.purp),
+                                          color: colors.pinkMain),
                                       floatingLabelStyle: GoogleFonts.inter(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w400,
-                                          color: colors.purp),
+                                          color: colors.pinkMain),
                                       floatingLabelBehavior:
                                           FloatingLabelBehavior.always,
                                       alignLabelWithHint: true,
@@ -230,8 +230,8 @@ class _EducDetailsScreenState extends State<EducDetailsScreen> {
                                     minimumSize: Size(width * 0.8, 60),
                                     maximumSize: Size(width * 0.8, 60),
                                     foregroundColor: colors.purpLight,
-                                    side: BorderSide(color: colors.purp),
-                                    backgroundColor: colors.purp,
+                                    side: BorderSide(color: colors.pinkMain),
+                                    backgroundColor: colors.pinkMain,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(30.0),
                                     ),
