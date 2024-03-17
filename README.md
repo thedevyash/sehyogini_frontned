@@ -25,9 +25,10 @@ Tech Stack
 Frontend: Flutter, Next.js
 Backend: Node.js, Express
 Database: MongoDB
+
+
 Getting Started
 To run the Sehyogini app locally, follow these steps:
-
 
 Clone the repository: git clone https://github.com/your-username/sehyogini-app.git
 Navigate to the project directory: cd sehyogini-app
