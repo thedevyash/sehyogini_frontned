@@ -6,18 +6,22 @@ Sehyogini is a companion app/web platform designed specifically for single mothe
 
 Features
 1. Community Section
+
 Our community section provides a moderated space where single mothers can connect, share experiences, and support each other. We employ a multilingual text moderation analysis AI model to measure the toxicity level of posts and comments, ensuring a positive and nurturing environment for all users.
 
 
-2. Voices Section for Counseling
+3. Voices Section for Counseling
+   
 In the Voices section, users can access counseling sessions with trained professionals. We've integrated a chatbot using the OpenAI API to provide immediate support and guidance to users whenever needed.
 
 
-3. Opportunities Section
+5. Opportunities Section
+   
 The Opportunities section offers single mothers access to various workshops, government schemes, and job opportunities tailored to their needs. We collaborate with NGOs to host workshops and provide resources for personal and professional development.
 
 
 Business Model
+
 Our business model revolves around providing valuable services to single mothers while generating revenue through paid workshops and counseling sessions. We also aim to collaborate with government agencies to promote relevant schemes and services.
 
 
