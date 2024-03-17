@@ -1,4 +1,6 @@
 Sehyogini App
+
+
 Sehyogini is a companion app/web platform designed specifically for single mothers, providing them with a one-stop solution for community support, counseling, and access to various opportunities. Our platform is dedicated to creating a safe and supportive environment free from toxicity, where single mothers can find resources, guidance, and connection with like-minded individuals.
 
 Features
