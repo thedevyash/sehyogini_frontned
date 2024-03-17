@@ -1,16 +1,31 @@
-# sehyogini_frontned
+Sehyogini App
+Sehyogini is a companion app/web platform designed specifically for single mothers, providing them with a one-stop solution for community support, counseling, and access to various opportunities. Our platform is dedicated to creating a safe and supportive environment free from toxicity, where single mothers can find resources, guidance, and connection with like-minded individuals.
 
-A new Flutter project.
+Features
+1. Community Section
+Our community section provides a moderated space where single mothers can connect, share experiences, and support each other. We employ a multilingual text moderation analysis AI model to measure the toxicity level of posts and comments, ensuring a positive and nurturing environment for all users.
 
-## Getting Started
+2. Voices Section for Counseling
+In the Voices section, users can access counseling sessions with trained professionals. We've integrated a chatbot using the OpenAI API to provide immediate support and guidance to users whenever needed.
 
-This project is a starting point for a Flutter application.
+3. Opportunities Section
+The Opportunities section offers single mothers access to various workshops, government schemes, and job opportunities tailored to their needs. We collaborate with NGOs to host workshops and provide resources for personal and professional development.
 
-A few resources to get you started if this is your first Flutter project:
+Business Model
+Our business model revolves around providing valuable services to single mothers while generating revenue through paid workshops and counseling sessions. We also aim to collaborate with government agencies to promote relevant schemes and services.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Tech Stack
+Frontend: Flutter, Next.js
+Backend: Node.js, Express
+Database: MongoDB
+Getting Started
+To run the Sehyogini app locally, follow these steps:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Clone the repository: git clone https://github.com/your-username/sehyogini-app.git
+Navigate to the project directory: cd sehyogini-app
+Add your OpenAI api key in chatScreen.dart for the chatbot to work
+
+
+License
+This project is licensed under the MIT License.
+
