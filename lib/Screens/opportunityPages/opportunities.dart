@@ -36,8 +36,8 @@ class _oppoState extends State<oppoScreen> {
 
   @override
   void dispose() {
-    dropcontroller.dispose();
-    dropcontroller.currentindex.value = "";
+    // dropcontroller.dispose();
+    // dropcontroller.currentindex.value = "";
     super.dispose();
   }
 
@@ -95,119 +95,119 @@ class _oppoState extends State<oppoScreen> {
                         shrinkWrap: true,
                         itemCount: controller.myModelTech.length,
                         itemBuilder: (context, index) {
-                          return Container(
-                            decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey,
-                                    blurRadius: 5.0,
-                                  ),
-                                ],
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(16))),
-                            child: Padding(
-                              padding: const EdgeInsets.all(14.0),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Image.asset('assets/emblem.png'),
-                                      SizedBox(
-                                        width: 8,
-                                      ),
-                                      Expanded(
-                                        child: Text(
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey,
+                                      blurRadius: 5.0,
+                                    ),
+                                  ],
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(16))),
+                              child: Padding(
+                                padding: const EdgeInsets.all(14.0),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Icon(Icons.work),
+                                        SizedBox(
+                                          width: 8,
+                                        ),
+                                        Expanded(
+                                          child: Text(
+                                            controller
+                                                .myModelTech[index].jobtitle!,
+                                            style: GoogleFonts.poppins(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 6,
+                                    ),
+                                    // Image.network(
+                                    //   controller.myModelCare[index].icon!,
+                                    //   height: 100,
+                                    // ),
+                                    SizedBox(
+                                      height: 4,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
                                           controller
-                                              .myModelTech[index].jobtitle!,
+                                              .myModelTech[index].company!,
                                           style: GoogleFonts.poppins(
-                                              fontSize: 16,
+                                              fontSize: 14,
                                               fontWeight: FontWeight.w600),
                                         ),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 6,
-                                  ),
-                                  // Image.network(
-                                  //   controller.myModelCare[index].icon!,
-                                  //   height: 100,
-                                  // ),
-                                  SizedBox(
-                                    height: 4,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        controller.myModelTech[index].company!,
-                                        style: GoogleFonts.poppins(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 8.0, bottom: 6),
-                                        child: Text(
-                                          controller
-                                              .myModelTech[index].description
-                                              .toString(),
-                                          style: GoogleFonts.poppins(),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 8.0, bottom: 6),
+                                          child: Text(
+                                            controller
+                                                .myModelTech[index].description
+                                                .toString(),
+                                            style: GoogleFonts.poppins(),
+                                          ),
                                         ),
-                                      ),
-                                      // Container(
-                                      //   decoration: BoxDecoration(
-                                      //       borderRadius: BorderRadius.all(
-                                      //           Radius.circular(8)),
-                                      //       color: colors.grey),
-                                      //   child: Padding(
-                                      //     padding: const EdgeInsets.all(8.0),
-                                      //     child: Text(
-                                      //       controller
-                                      //           .myModelTech[index].!,
-                                      //       style: GoogleFonts.poppins(),
-                                      //     ),
-                                      //   ),
-                                      // ),
-                                      SizedBox(
-                                        height: 6,
-                                      ),
-                                      TextButton(
-                                          style: TextButton.styleFrom(
-                                              padding: EdgeInsets.only(
-                                                  top: 4,
-                                                  bottom: 4,
-                                                  left: 8,
-                                                  right: 8),
-                                              fixedSize: Size(100, 24),
-                                              backgroundColor: Colors.red),
-                                          onPressed: () {},
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "Read More",
-                                                style: GoogleFonts.poppins(
-                                                    fontSize: 12,
-                                                    color: Colors.white),
-                                              ),
-                                              Icon(
-                                                Icons.arrow_forward_ios_rounded,
-                                                color: Colors.white,
-                                                size: 14,
-                                              )
-                                            ],
-                                          ))
-                                    ],
-                                  ),
-                                ],
+                                        // Container(
+                                        //   decoration: BoxDecoration(
+                                        //       borderRadius: BorderRadius.all(
+                                        //           Radius.circular(8)),
+                                        //       color: colors.grey),
+                                        //   child: Padding(
+                                        //     padding: const EdgeInsets.all(8.0),
+                                        //     child: Text(
+                                        //       controller
+                                        //           .myModelTech[index].!,
+                                        //       style: GoogleFonts.poppins(),
+                                        //     ),
+                                        //   ),
+                                        // ),
+                                        SizedBox(
+                                          height: 6,
+                                        ),
+                                        TextButton(
+                                            style: TextButton.styleFrom(
+                                                padding: EdgeInsets.only(
+                                                    top: 4,
+                                                    bottom: 4,
+                                                    left: 8,
+                                                    right: 8),
+                                                fixedSize: Size(100, 24),
+                                                backgroundColor: Colors.red),
+                                            onPressed: () {},
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  "Read More",
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: 12,
+                                                      color: Colors.white),
+                                                ),
+                                              ],
+                                            ))
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           );
@@ -318,16 +318,11 @@ class _oppoState extends State<oppoScreen> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                "Read More",
+                                                "Apply Now !",
                                                 style: GoogleFonts.poppins(
                                                     fontSize: 12,
                                                     color: Colors.white),
                                               ),
-                                              Icon(
-                                                Icons.arrow_forward_ios_rounded,
-                                                color: Colors.white,
-                                                size: 14,
-                                              )
                                             ],
                                           ))
                                     ],
@@ -444,16 +439,11 @@ class _oppoState extends State<oppoScreen> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                "Read More",
+                                                "Apply Now !",
                                                 style: GoogleFonts.poppins(
                                                     fontSize: 12,
                                                     color: Colors.white),
                                               ),
-                                              Icon(
-                                                Icons.arrow_forward_ios_rounded,
-                                                color: Colors.white,
-                                                size: 14,
-                                              )
                                             ],
                                           ))
                                     ],
@@ -570,16 +560,11 @@ class _oppoState extends State<oppoScreen> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                "Read More",
+                                                "Apply Now !",
                                                 style: GoogleFonts.poppins(
                                                     fontSize: 12,
                                                     color: Colors.white),
                                               ),
-                                              Icon(
-                                                Icons.arrow_forward_ios_rounded,
-                                                color: Colors.white,
-                                                size: 14,
-                                              )
                                             ],
                                           ))
                                     ],
@@ -695,16 +680,11 @@ class _oppoState extends State<oppoScreen> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                "Read More",
+                                                "Apply Now !",
                                                 style: GoogleFonts.poppins(
                                                     fontSize: 12,
                                                     color: Colors.white),
                                               ),
-                                              Icon(
-                                                Icons.arrow_forward_ios_rounded,
-                                                color: Colors.white,
-                                                size: 14,
-                                              )
                                             ],
                                           ))
                                     ],
@@ -820,16 +800,11 @@ class _oppoState extends State<oppoScreen> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            "Read More",
+                                            "Apply Now !",
                                             style: GoogleFonts.poppins(
                                                 fontSize: 12,
                                                 color: Colors.white),
                                           ),
-                                          Icon(
-                                            Icons.arrow_forward_ios_rounded,
-                                            color: Colors.white,
-                                            size: 14,
-                                          )
                                         ],
                                       ))
                                 ],

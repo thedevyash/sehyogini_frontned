@@ -2,17 +2,16 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:sehyogini_frontned/models/jobs.dart';
-import 'package:sehyogini_frontned/models/posts.dart';
 import 'package:http/http.dart' as http;
 import 'package:sehyogini_frontned/utils/url.dart';
 
 class GetJobsController extends GetxController {
   RxBool isLoading = false.obs;
-  RxList<JobModel> myModelTech = <JobModel>[].obs;
-  RxList<JobModel> myModelFree = <JobModel>[].obs;
-  RxList<JobModel> myModelCraft = <JobModel>[].obs;
-  RxList<JobModel> myModelPhil = <JobModel>[].obs;
-  RxList<JobModel> myModelCare = <JobModel>[].obs;
+  RxList<jobModel> myModelTech = <jobModel>[].obs;
+  RxList<jobModel> myModelFree = <jobModel>[].obs;
+  RxList<jobModel> myModelCraft = <jobModel>[].obs;
+  RxList<jobModel> myModelPhil = <jobModel>[].obs;
+  RxList<jobModel> myModelCare = <jobModel>[].obs;
   @override
   onInit() {
     super.onInit();
@@ -29,26 +28,26 @@ class GetJobsController extends GetxController {
         headers: {"Content-Type": "application/json", 'Accept': '*/*'},
       );
 
-      // print("get posts called");
+      print("get jobs called");
 
       // print(response.body);
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
-        // print(data);
+        print(data["technology"]);
         myModelTech.value = (data["technology"] as List)
-            .map((i) => JobModel.fromJson(i))
+            .map((i) => jobModel.fromJson(i))
             .toList();
         myModelCraft.value = (data["craftsmanship"] as List)
-            .map((i) => JobModel.fromJson(i))
+            .map((i) => jobModel.fromJson(i))
             .toList();
         myModelPhil.value = (data["philanthropy"] as List)
-            .map((i) => JobModel.fromJson(i))
+            .map((i) => jobModel.fromJson(i))
             .toList();
         myModelCare.value = (data["caregiving"] as List)
-            .map((i) => JobModel.fromJson(i))
+            .map((i) => jobModel.fromJson(i))
             .toList();
         myModelFree.value = (data["freelance"] as List)
-            .map((i) => JobModel.fromJson(i))
+            .map((i) => jobModel.fromJson(i))
             .toList();
 
         return true;

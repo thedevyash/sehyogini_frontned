@@ -54,6 +54,7 @@ dependencies:
   flutter_custom_tab_bar: ^1.2.1
   animated_custom_dropdown: ^3.0.0
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

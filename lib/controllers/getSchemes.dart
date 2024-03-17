@@ -32,7 +32,7 @@ class GetSchemeController extends GetxController {
       // print(response.body);
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
-
+        print(data);
         myscheme.value =
             (data as List).map((i) => schemeModel.fromJson(i)).toList();
 

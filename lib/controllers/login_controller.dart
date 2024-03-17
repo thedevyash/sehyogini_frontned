@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:sehyogini_frontned/controllers/getUserById.dart';
@@ -52,9 +53,14 @@ class LoginController extends GetxController {
       print(response.statusCode);
       print(response.body);
       // show error SnackBar
-      Get.snackbar('Login Failed', e.toString(),
-          margin: EdgeInsets.only(bottom: 20, left: 10, right: 10),
-          snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar(
+        'Login Failed',
+        e.toString(),
+        snackPosition: SnackPosition.BOTTOM,
+        colorText: Colors.white,
+        backgroundColor: colors.pink,
+        margin: EdgeInsets.only(bottom: 20, left: 10, right: 10),
+      );
 
       return false;
     } finally {

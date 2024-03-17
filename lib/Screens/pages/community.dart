@@ -15,7 +15,6 @@ import 'package:sehyogini_frontned/controllers/likeComment_controller.dart';
 import 'package:sehyogini_frontned/controllers/makeAPost_controller.dart';
 // import 'package:sehyogini_frontned/models/posts.dart';
 import 'package:sehyogini_frontned/utils/constants.dart';
-import 'package:sehyogini_frontned/utils/login_field.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CommunityScreen extends StatefulWidget {
@@ -289,7 +288,12 @@ class _CommunityScreenState extends State<CommunityScreen>
                                         CrossAxisAlignment.center,
                                     children: [
                                       CircleAvatar(
-                                        child: Icon(Icons.person),
+                                        backgroundColor: Colors.white,
+                                        child: getPostsController
+                                                    .myModel[index].title !=
+                                                "admin"
+                                            ? Icon(Icons.person)
+                                            : Image.asset("assets/seh.png"),
                                       ),
                                       SizedBox(
                                         width: 8,
@@ -299,6 +303,16 @@ class _CommunityScreenState extends State<CommunityScreen>
                                             .myModel[index].author!,
                                         style: styleTitle,
                                       ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      getPostsController.myModel[index].title ==
+                                              "admin"
+                                          ? Icon(
+                                              Icons.verified,
+                                              color: Colors.blue,
+                                            )
+                                          : SizedBox()
                                     ],
                                   ),
                                   SizedBox(
@@ -392,7 +406,7 @@ class _CommunityScreenState extends State<CommunityScreen>
                                             //     )),
                                             TextButton.icon(
                                                 label: Text(
-                                                  "Gupshup",
+                                                  "Comments",
                                                   style: styleContent,
                                                 ),
                                                 style: TextButton.styleFrom(
@@ -520,7 +534,7 @@ class _CommunityScreenState extends State<CommunityScreen>
                                                                                 var resp = await likeCommentController.doComment(snapshot.data!.sId!);
                                                                                 if (resp) {
                                                                                   if (!likeCommentController.isPosted.value) {
-                                                                                    Get.snackbar("Community Violation", "Please follow our guidelines");
+                                                                                    Get.snackbar("Community Violation", "Please follow our guidelines", backgroundColor: colors.pinkMain, colorText: Colors.white, snackPosition: SnackPosition.TOP, margin: EdgeInsets.only(top: 10, left: 8, right: 8));
                                                                                   }
                                                                                   // if (!likeCommentController.isPosted.value) {
                                                                                   //   likeCommentController.commentcontroller.clear();

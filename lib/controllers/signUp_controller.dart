@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:sehyogini_frontned/utils/constants.dart';
 import 'package:sehyogini_frontned/utils/url.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -98,9 +100,10 @@ class RegisterController extends GetxController {
       Get.snackbar(
         'Registration Failed',
         e.toString(),
-        // backgroundColor:,
-        // colorText: colors.kWhite,
         snackPosition: SnackPosition.BOTTOM,
+        colorText: Colors.white,
+        backgroundColor: colors.pinkMain,
+        margin: EdgeInsets.only(bottom: 20, left: 10, right: 10),
       );
       return false;
     } finally {

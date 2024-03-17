@@ -5,7 +5,7 @@ class schemeModel {
   String? benefits;
   String? icon;
   String? ministryName;
-
+  String? helpline;
   schemeModel(
       {this.schemeName,
       this.schemeDescription,
@@ -16,11 +16,12 @@ class schemeModel {
 
   schemeModel.fromJson(Map<String, dynamic> json) {
     schemeName = json['scheme_name'];
-    schemeDescription = json['scheme_description'];
+    schemeDescription = json['scheme_desription'];
     url = json['url'];
     benefits = json['benefits'];
     icon = json['icon'];
     ministryName = json['ministry_name'];
+    helpline = json['helpline'];
   }
 
   Map<String, dynamic> toJson() {
@@ -31,6 +32,7 @@ class schemeModel {
     data['benefits'] = this.benefits;
     data['icon'] = this.icon;
     data['ministry_name'] = this.ministryName;
+    data['helpline'] = this.helpline;
     return data;
   }
 }

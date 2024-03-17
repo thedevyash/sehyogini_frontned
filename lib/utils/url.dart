@@ -10,7 +10,8 @@ class URL {
   static const doComment = "$baseUrl/api/do-comment";
   static const makeAPost = "$baseUrl/api/createPost";
   static const getUserById = "$baseUrl/api/getUserByID/";
-  static const getJobs = "$baseUrl/api/getJobs/65e7fa1b0dc978c5ad1c3e79";
+  static const getJobs =
+      "https://sehyogini.onrender.com/api/getJobs/65f626358effaff0c2dcb65d";
   static const getSchemes = "$baseUrl/api/getSchemes";
   static const getWorkshops = "$baseUrl/api/getWorkshop";
 }

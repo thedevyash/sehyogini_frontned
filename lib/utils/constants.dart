@@ -37,7 +37,7 @@ List pages = [
   CommunityScreen(),
   VoicesScreen(),
   OpportunityScreen(),
-  MyProfileScreen()
+  MyProfile()
 ];
 
 var styleTitle = GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w600);

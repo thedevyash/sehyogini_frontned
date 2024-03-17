@@ -15,10 +15,19 @@ class Schemes extends StatefulWidget {
 
 class _SchemesState extends State<Schemes> {
   GetSchemeController controller = Get.put(GetSchemeController());
+
   _launchURL(String x) async {
     final Uri url = Uri.parse(x);
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');
+    }
+  }
+
+  _launchURLPhone(String x) async {
+    if (await canLaunch(x)) {
+      await launch(x);
+    } else {
+      throw 'Could not launch $x';
     }
   }
 
@@ -115,30 +124,68 @@ class _SchemesState extends State<Schemes> {
                               SizedBox(
                                 height: 6,
                               ),
-                              TextButton(
-                                  style: TextButton.styleFrom(
-                                      padding: EdgeInsets.only(
-                                          top: 4, bottom: 4, left: 8, right: 8),
-                                      fixedSize: Size(100, 24),
-                                      backgroundColor: Colors.red),
-                                  onPressed: () => _launchURL(
-                                      controller.myscheme[index].url!),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "Read More",
-                                        style: GoogleFonts.poppins(
-                                            fontSize: 12, color: Colors.white),
-                                      ),
-                                      Icon(
-                                        Icons.arrow_forward_ios_rounded,
-                                        color: Colors.white,
-                                        size: 14,
-                                      )
-                                    ],
-                                  ))
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  TextButton(
+                                      style: TextButton.styleFrom(
+                                          padding: EdgeInsets.only(
+                                              top: 4,
+                                              bottom: 4,
+                                              left: 8,
+                                              right: 8),
+                                          fixedSize: Size(100, 24),
+                                          backgroundColor: Colors.red),
+                                      onPressed: () => _launchURL(
+                                          controller.myscheme[index].url!),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Read More",
+                                            style: GoogleFonts.poppins(
+                                                fontSize: 12,
+                                                color: Colors.white),
+                                          ),
+                                          Icon(
+                                            Icons.arrow_forward_ios_rounded,
+                                            color: Colors.white,
+                                            size: 14,
+                                          )
+                                        ],
+                                      )),
+                                  TextButton(
+                                      style: TextButton.styleFrom(
+                                          padding: EdgeInsets.only(
+                                              top: 4,
+                                              bottom: 4,
+                                              left: 8,
+                                              right: 8),
+                                          fixedSize: Size(100, 24),
+                                          backgroundColor: Colors.red),
+                                      onPressed: () => _launchURLPhone(
+                                          "tel:${controller.myscheme[index].helpline!}"),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "HelpLine",
+                                            style: GoogleFonts.poppins(
+                                                fontSize: 12,
+                                                color: Colors.white),
+                                          ),
+                                          Icon(
+                                            Icons.call,
+                                            color: Colors.white,
+                                            size: 14,
+                                          )
+                                        ],
+                                      )),
+                                ],
+                              ),
                             ],
                           ),
                         ],

@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sehyogini_frontned/OnboardingScreens/signIn.dart';
+import 'package:sehyogini_frontned/Screens/Settings.dart';
 import 'package:sehyogini_frontned/controllers/bottom_bar.dart';
 import 'package:sehyogini_frontned/onboarding.dart';
 import 'package:sehyogini_frontned/utils/constants.dart';
@@ -96,6 +97,13 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               onPressed: () => scaffoldKey.currentState?.openDrawer(),
             ),
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    Get.to(SettingsScreen());
+                  },
+                  icon: Icon(Icons.settings))
+            ],
           ),
           body: Obx(() => pages[navbarController.currentindex.value]),
           bottomNavigationBar: Obx(() => CurvedNavigationBar(
@@ -107,15 +115,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   buttonBackgroundColor: colors.pinkMain,
                   height: 60,
                   items: [
-                    Icon(
-                      Icons.people,
+                    Image.asset(
+                      "assets/community.png",
+                      height: 30,
                       color: Colors.white,
-                      size: 30,
                     ),
-                    Icon(
+                    Image.asset(
+                      "assets/voices.png",
+                      height: 30,
                       color: Colors.white,
-                      CupertinoIcons.power,
-                      size: 30,
                     ),
                     Icon(
                       color: Colors.white,

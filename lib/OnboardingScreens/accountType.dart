@@ -91,13 +91,18 @@ class _AccountTypeState extends State<AccountType> {
                                 },
                                 child: Container(
                                   child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
+                                      Image.asset(
+                                        "assets/ngo.png",
+                                        height: 80,
+                                      ),
                                       Text("Recruiter",
                                           textAlign: TextAlign.center,
                                           style: GoogleFonts.poppins(
                                               color: Colors.white,
                                               fontSize: 20,
-                                              fontWeight: FontWeight.w400))
+                                              fontWeight: FontWeight.w600))
                                     ],
                                   ),
                                 ),
@@ -122,13 +127,18 @@ class _AccountTypeState extends State<AccountType> {
                                 },
                                 child: Container(
                                   child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
+                                      Image.asset(
+                                        "assets/single.png",
+                                        height: 80,
+                                      ),
                                       Text("Single Mother",
                                           textAlign: TextAlign.center,
                                           style: GoogleFonts.poppins(
                                               color: Colors.white,
                                               fontSize: 20,
-                                              fontWeight: FontWeight.w400))
+                                              fontWeight: FontWeight.w600))
                                     ],
                                   ),
                                 ),
